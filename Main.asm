@@ -67,11 +67,8 @@ section	"ROM header",rom0[$100]
 EntryPoint::
 	nop
 	jp	ProgramStart
-NintendoLogo:	; DO NOT MODIFY OR ROM WILL NOT BOOT!!!
-	db	$ce,$ed,$66,$66,$cc,$0d,$00,$0b,$03,$73,$00,$83,$00,$0c,$00,$0d
-	db	$00,$08,$11,$1f,$88,$89,$00,$0e,$dc,$cc,$6e,$e6,$dd,$dd,$d9,$99
-	db	$bb,$bb,$67,$63,$6e,$0e,$ec,$cc,$dd,$dc,$99,$9f,$bb,$b9,$33,$3e
-ROMTitle:		romTitle	"LOST INTRO"	; ROM title (15 bytes)
+NintendoLogo:	ds  48,0                        ; handled by post-linking tool
+ROMTitle:		romTitle	"LOST INTRO"	    ; ROM title (15 bytes)
 GBCSupport:		db	$00							; GBC support (0 = DMG only, $80 = DMG/GBC, $C0 = GBC only)
 NewLicenseCode:	db	"AC"						; new license code (2 bytes)
 SGBSupport:		db	0							; SGB support
@@ -81,7 +78,7 @@ RAMSize:		db	0							; RAM size
 DestCode:		db	1							; Destination code (0 = Japan, 1 = All others)
 OldLicenseCode:	db	$33							; Old license code (if $33, check new license code)
 ROMVersion:		db	0							; ROM version
-HeaderChecksum:	db								; Header checksum (handled by post-linking tool)
+HeaderChecksum:	db  0							; Header checksum (handled by post-linking tool)
 ROMChecksum:	dw								; ROM checksum (2 bytes) (handled by post-linking tool)
 
 ; =====================
@@ -308,7 +305,7 @@ WindowScrollTable:
 	db	1,3,6,10,15,21,28,36,45,55,65,75,85,95,105,115,125,135,145,155,160,168
 	db	167,165,163,163,162,161,160,160,159,159
 	db	159,159,160,160,161,162,162,163,165,167,168
-WindowScrollTable_End
+WindowScrollTable_End:
 	
 IntroLoop2:
 	ld	a,[DemoTimer]
@@ -339,7 +336,7 @@ MainLoop::
 ScrollText::
 	db	"                    "
 	incbin	"Scrolltext.txt"
-ScrollText_End
+ScrollText_End:
 	db	"                    "
 
 ScrollTextSize	equ	(ScrollText_End-ScrollText)
@@ -639,7 +636,7 @@ _OAM_DMA::
 	dec	a
 	jr	nz,.wait
 	ret
-_OAM_DMA_End
+_OAM_DMA_End:
 
 ; =============
 ; Misc routines

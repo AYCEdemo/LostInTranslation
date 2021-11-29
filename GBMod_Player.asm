@@ -1400,7 +1400,7 @@ GBMod_DoPitchSlide:
 	
 GBM_AddChannelID:
 	ld	a,e
-GBM_AddChannelID_skip
+GBM_AddChannelID_skip:
 	add	l
 	ld	l,a
 	ret	nc
@@ -1587,7 +1587,7 @@ GBMod_PlaySample:
 	
 GBMod_UpdateSample:
 	push	hl
-GBMod_UpdateSample2
+GBMod_UpdateSample2:
 	ld	a,[GBM_SamplePlaying]
 	and	a
 	ret	z	; return if sample not playing
@@ -1650,10 +1650,10 @@ GBM_PulseWaves:
 ; wave_Pulse50:  $ff,$ff,$ff,$ff,$ff,$ff,$ff,$ff,$00,$00,$00,$00,$00,$00,$00,$00
 ; wave_Pulse25:  $ff,$ff,$ff,$ff,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00
 ; wave_Pulse125: $ff,$ff,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00
-wave_Pulse75	db	$ff,$ff,$ff,$ff
-wave_Pulse50	db	$ff,$ff,$ff,$ff
-wave_Pulse25	db	$ff,$ff
-wave_Pulse125	db	$ff,$ff,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00 ; last four bytes read from WaveVolumeTable
+wave_Pulse75:	db	$ff,$ff,$ff,$ff
+wave_Pulse50:	db	$ff,$ff,$ff,$ff
+wave_Pulse25:	db	$ff,$ff
+wave_Pulse125:	db	$ff,$ff,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00 ; last four bytes read from WaveVolumeTable
 	
 WaveVolTable:	
 	db	$00,$00,$00,$00,$60,$60,$60,$60,$40,$40,$40,$40,$20,$20,$20,$20
@@ -1963,79 +1963,79 @@ include	"GBMod_SampleData.asm"
 ; ================
 
 section "GBMod vars",wram0
-GBM_RAM_Start
+GBM_RAM_Start:
 
-GBM_SongID			ds	1
-GBM_DoPlay			ds	1
-GBM_CurrentRow		ds	1
-GBM_CurrentPattern	ds	1
-GBM_ModuleSpeed		ds	1
-GBM_SpeedChanged	ds	1
-GBM_ModuleTimer		ds	1
-GBM_TickSpeed		ds	1
-GBM_TickTimer		ds	1
-GBM_PatternCount	ds	1
-GBM_PatTableSize	ds	1
-GBM_PatTablePos		ds	1
-GBM_SongDataOffset	ds	2
+GBM_SongID:			ds	1
+GBM_DoPlay:			ds	1
+GBM_CurrentRow:		ds	1
+GBM_CurrentPattern:	ds	1
+GBM_ModuleSpeed:	ds	1
+GBM_SpeedChanged:	ds	1
+GBM_ModuleTimer:	ds	1
+GBM_TickSpeed:		ds	1
+GBM_TickTimer:		ds	1
+GBM_PatternCount:	ds	1
+GBM_PatTableSize:	ds	1
+GBM_PatTablePos:	ds	1
+GBM_SongDataOffset:	ds	2
 
-GBM_PanFlags		ds	1
+GBM_PanFlags:		ds	1
 
-GBM_ArpTick1		ds	1
-GBM_ArpTick2		ds	1
-GBM_ArpTick3		ds	1
-GBM_ArpTick4		ds	1
+GBM_ArpTick1:		ds	1
+GBM_ArpTick2:		ds	1
+GBM_ArpTick3:		ds	1
+GBM_ArpTick4:		ds	1
 
-GBM_CmdTick1		ds	1
-GBM_CmdTick2		ds	1
-GBM_CmdTick3		ds	1
-GBM_CmdTick4		ds	1
+GBM_CmdTick1:		ds	1
+GBM_CmdTick2:		ds	1
+GBM_CmdTick3:		ds	1
+GBM_CmdTick4:		ds	1
 
-GBM_Command1		ds	1
-GBM_Command2		ds	1
-GBM_Command3		ds	1
-GBM_Command4		ds	1
-GBM_Param1			ds	1
-GBM_Param2			ds	1
-GBM_Param3			ds	1
-GBM_Param4			ds	1
+GBM_Command1:		ds	1
+GBM_Command2:		ds	1
+GBM_Command3:		ds	1
+GBM_Command4:		ds	1
+GBM_Param1:			ds	1
+GBM_Param2:			ds	1
+GBM_Param3:			ds	1
+GBM_Param4:			ds	1
 
-GBM_Note1			ds	1
-GBM_Note2			ds	1
-GBM_Note3			ds	1
-GBM_Note4			ds	1
+GBM_Note1:			ds	1
+GBM_Note2:			ds	1
+GBM_Note3:			ds	1
+GBM_Note4:			ds	1
 
-GBM_FreqOffset1		ds	2
-GBM_FreqOffset2		ds	2
-GBM_FreqOffset3		ds	2
+GBM_FreqOffset1:	ds	2
+GBM_FreqOffset2:	ds	2
+GBM_FreqOffset3:	ds	2
 
-GBM_Vol1			ds	1
-GBM_Vol2			ds	1
-GBM_Vol3			ds	1
-GBM_Vol4			ds	1
-GBM_OldVol1			ds	1
-GBM_OldVol2			ds	1
-GBM_OldVol3			ds	1
-GBM_OldVol4			ds	1
-GBM_Pulse1			ds	1
-GBM_Pulse2			ds	1
-GBM_Wave3			ds	1
-GBM_Mode4			ds	1
+GBM_Vol1:			ds	1
+GBM_Vol2:			ds	1
+GBM_Vol3:			ds	1
+GBM_Vol4:			ds	1
+GBM_OldVol1:		ds	1
+GBM_OldVol2:		ds	1
+GBM_OldVol3:		ds	1
+GBM_OldVol4:		ds	1
+GBM_Pulse1:			ds	1
+GBM_Pulse2:			ds	1
+GBM_Wave3:			ds	1
+GBM_Mode4:			ds	1
 
-GBM_SkipCH1			ds	1
-GBM_SkipCH2			ds	1
-GBM_SkipCH3			ds	1
-GBM_SkipCH4			ds	1
+GBM_SkipCH1:		ds	1
+GBM_SkipCH2:		ds	1
+GBM_SkipCH3:		ds	1
+GBM_SkipCH4:		ds	1
 
-GBM_LastWave		ds	1
-GBM_WaveBuffer		ds	16
+GBM_LastWave:		ds	1
+GBM_WaveBuffer:		ds	16
 
-GBM_SamplePlaying	ds	1
-GBM_SampleID		ds	1
-GBM_SampleBank		ds	1
-GBM_SamplePointer	ds	2
-GBM_SampleCounter	ds	2
-GBM_RAM_End
+GBM_SamplePlaying:	ds	1
+GBM_SampleID:		ds	1
+GBM_SampleBank:		ds	1
+GBM_SamplePointer:	ds	2
+GBM_SampleCounter:	ds	2
+GBM_RAM_End:
 
 ; Note values
 C_2		equ	$00

@@ -123,27 +123,27 @@ string:					macro
 
 section	"Variables",wram0[$c000]
 
-SpriteBuffer		ds	40*4	; 40 sprites, 4 bytes each
+SpriteBuffer:		ds	40*4	; 40 sprites, 4 bytes each
 
-sys_GBType			ds	1
-sys_CurrentFrame	ds	1
-sys_btnPress		ds	1
-sys_btnHold			ds	1
-sys_VBlankFlag		ds	1
-sys_TimerFlag		ds	1
-sys_LCDCFlag		ds	1
+sys_GBType:			ds	1
+sys_CurrentFrame:	ds	1
+sys_btnPress:		ds	1
+sys_btnHold:		ds	1
+sys_VBlankFlag:		ds	1
+sys_TimerFlag:		ds	1
+sys_LCDCFlag:		ds	1
 ; project-specific
 ScrollerPos:		ds	2
 ScrollerOffset:		ds	1
 FadeLevel:			ds	1
 
-DemoTimer			ds	1
+DemoTimer:			ds	1
 
 section "Zeropage",hram
 
-OAM_DMA				ds	16
-tempAF				ds	2
-tempBC				ds	2
-tempDE				ds	2
-tempHL				ds	2
-tempSP				ds	2
+OAM_DMA:			ds	16
+tempAF:				ds	2
+tempBC:				ds	2
+tempDE:				ds	2
+tempHL:				ds	2
+tempSP:				ds	2
